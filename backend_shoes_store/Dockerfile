@@ -10,5 +10,4 @@ RUN pipenv install --system --deploy --dev
 COPY . /code/
 
 ENV DEBUG true
-# ENV ALLOWED_HOSTS *
 CMD ["sh", "start-dev.sh"]

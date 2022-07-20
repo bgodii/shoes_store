@@ -4,14 +4,9 @@ services:
   db:
     image: postgres
     volumes:
-      - ./data:/data/postgres
-    ports:
-      - "5432:5432"
+      - ./data:/var/lib/postgresql/data/
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DATABASES: >-
-        shoes_store
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
 
   backend_shoes_store:
     build:

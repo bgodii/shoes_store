@@ -1,13 +1,9 @@
 import os
 from datetime import timedelta
 
-import sentry_sdk
-
-from unipath import Path
 from decouple import config
 from dj_database_url import parse as db_url
-from sentry_sdk.integrations.django import DjangoIntegration
-
+from unipath import Path
 
 ROOT_DIR = Path(__file__).ancestor(3)
 APPS_DIR = ROOT_DIR.child('shoes_store')
@@ -15,15 +11,6 @@ APPS_DIR = ROOT_DIR.child('shoes_store')
 SECRET_KEY = config(
     'SECRET_KEY',
     default="!!!SET SECRET_KEY!!!",
-)
-
-sentry_sdk.init(
-    dsn=os.environ.get("SENTRY_DSN", None),
-    integrations=[DjangoIntegration()],
-
-    # If you wish to associate users to errors (assuming you are using
-    # django.contrib.auth) you may enable sending PII data.
-    send_default_pii=True
 )
 
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -47,13 +34,7 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'rest_framework.authtoken',
-    'django_extensions',
-    
-    'elasticapm.contrib.django',
-    'drf_yasg2',
-    'django_filters',
-    'corsheaders'
+    'rest_framework.authtoken',    
 ]
 
 LOCAL_APPS = [
@@ -182,11 +163,7 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
-        "rest_framework_simplejwt.authentication.JWTTokenUserAuthentication",
         "rest_framework.authentication.TokenAuthentication",
-    ),
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100,

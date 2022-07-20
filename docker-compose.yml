@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data:/data/postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DATABASES: >-
+        shoes_store
+
+  backend_shoes_store:
+    build:
+      context: ./backend_shoes_store
+      # target: DevServer
+    container_name: backend
+    command: /code/start-dev.sh
+    volumes:
+      - ./backend_shoes_store:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

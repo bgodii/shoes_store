@@ -6,6 +6,6 @@ from core import views
 app_name = 'core'
 
 routers = DefaultRouter()
-
+routers.register("shoes", views.ShoesViewSet, basename="shoes")
 
 urlpatterns = [path('', include(routers.urls))]

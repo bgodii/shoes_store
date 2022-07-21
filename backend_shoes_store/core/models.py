@@ -1,4 +1,5 @@
 import uuid
+from xml.dom.pulldom import default_bufsize
 
 from django.db import models
 
@@ -40,3 +41,5 @@ class Shoes(BaseModel):
     color = models.CharField(null=False, max_length=50)
     brand = models.CharField(null=False, max_length=50)
     type = models.CharField(choices=TYPE_CHOICES ,null=False, max_length=50)
+    price = models.FloatField(null=False, default=0)
+    quantity = models.IntegerField(null=True, default=0)

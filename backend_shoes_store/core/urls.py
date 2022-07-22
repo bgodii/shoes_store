@@ -6,6 +6,8 @@ from core import views
 app_name = 'core'
 
 routers = DefaultRouter()
+
 routers.register("shoes", views.ShoesViewSet, basename="shoes")
+routers.register("upload", views.CsvUploadViewSet, basename="upload")
 
 urlpatterns = [path('', include(routers.urls))]

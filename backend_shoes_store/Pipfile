@@ -10,6 +10,7 @@ psycopg2-binary = "*"
 Unipath = "*"
 python-decouple = "*"
 dj-database-url = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 

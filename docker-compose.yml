@@ -11,7 +11,6 @@ services:
   backend_shoes_store:
     build:
       context: ./backend_shoes_store
-      # target: DevServer
     container_name: backend
     command: /code/start-dev.sh
     volumes:
@@ -20,3 +19,14 @@ services:
       - "8000:8000"
     depends_on:
       - db
+
+  frontend_shoes_store:
+    build:
+      context: ./frontend_shoes_store
+    container_name: frontend
+    volumes:
+      - ./frontend_shoes_store:/code
+    ports:
+      - "3000:3000"
+    # depends_on:
+    #   - backend_shoes_store

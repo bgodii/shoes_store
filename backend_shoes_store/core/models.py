@@ -9,12 +9,13 @@ class BaseModel(models.Model):
     created_at = models.DateField(auto_now_add=True)
     modified_at = models.DateField(auto_now=True)
 
+
 class Shoes(BaseModel):
-    BOOTS = "Boots"
-    CASUAL = "Casual"
-    SNEAKER = "Sneaker"
-    FORMAL = "Formal"
-    SANDALS = "Sandals"
+    BOOTS = "boots"
+    CASUAL = "casual"
+    SNEAKER = "sneaker"
+    FORMAL = "formal"
+    SANDALS = "sandals"
 
     TYPE_CHOICES = (
         (BOOTS, BOOTS),
@@ -24,22 +25,17 @@ class Shoes(BaseModel):
         (SANDALS, SANDALS),
     )
 
-    MALE = "Male"
-    FEMALE = "Female"
-    UNISSEX = "Unissex"
+    MALE = "male"
+    FEMALE = "female"
+    UNISSEX = "unissex"
 
-    GENDER_CHOICES = (
-        (MALE, MALE),
-        (FEMALE, FEMALE),
-        (UNISSEX, UNISSEX)
-    )
+    GENDER_CHOICES = ((MALE, MALE), (FEMALE, FEMALE), (UNISSEX, UNISSEX))
 
-
-    size = models.CharField(null=False, max_length=50)
+    size = models.IntegerField(null=False, default=0)
     model = models.CharField(null=False, max_length=50)
-    gender = models.CharField(choices=GENDER_CHOICES ,null=False, max_length=50)
+    gender = models.CharField(choices=GENDER_CHOICES, null=False, max_length=50)
     color = models.CharField(null=False, max_length=50)
     brand = models.CharField(null=False, max_length=50)
-    type = models.CharField(choices=TYPE_CHOICES ,null=False, max_length=50)
+    type = models.CharField(choices=TYPE_CHOICES, null=False, max_length=50)
     price = models.FloatField(null=False, default=0)
     quantity = models.IntegerField(null=True, default=0)

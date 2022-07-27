@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import API from "../../infra/axios"
+import Modal from "../modal";
 
 const Table = () => {
     // eslint-disable-next-line
     const [values, setValues] = useState()
+    const [modal, setModal] = useState(false)
 
     const getData = async () => {
         const response = await API.getData("/api/shoes/")
@@ -19,6 +21,9 @@ const Table = () => {
         API.removeData(`/api/shoes/${itemId}/`)
         window.location.reload(true)
     }
+
+    const openModal = () => setModal(true)
+    const closeModal = () => setModal(false)
 
     return (
         <>
@@ -50,7 +55,11 @@ const Table = () => {
                                 <td>{item.type}</td>
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
-                                <td><button id={item.id} className="button is-small is-danger" onClick={deleteItem}>Remover</button></td>
+                                <td>
+                                    <button id={item.id} className="button is-small is-warning" onClick={openModal} style={{ marginRight: 10 }}>Editar</button>
+                                    <button id={item.id} className="button is-small is-danger" onClick={deleteItem}>Remover</button>
+                                    <Modal show={modal} closeModal={closeModal} data={item} />
+                                </td>
                             </tr>
                         </tbody>
                     ))}

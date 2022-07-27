@@ -12,9 +12,9 @@ const InputData = () => {
 
     const sendData = async () => {
         if (!isUpload) {
-            response = await API.postData(values, '/api/shoes/')
+            const response = await API.postData(values, '/api/shoes/')
         } else {
-            response = await API.uploadFile(file["file"], '/api/upload/')
+            const response = await API.uploadFile(file["file"], '/api/upload/')
         }
 
         window.location.reload(true)
@@ -45,36 +45,37 @@ const InputData = () => {
                 </ul>
             </div>
             {isUpload ?
-                <div className="file has-name is-small is-fullwidth is-link" style={{ paddingBottom: 12 }}>
-                    <label className="file-label">
-                        <input className="file-input" type="file" name="resume" onChange={onFileChange} />
-                        <span className="file-cta">
-                            <span className="file-icon">
-                                <i className="fas fa-upload"></i>
+                (
+                    <div className="file has-name is-small is-fullwidth is-link" style={{ paddingBottom: 12 }}>
+                        <label className="file-label">
+                            <input className="file-input" type="file" name="resume" onChange={onFileChange} />
+                            <span className="file-cta">
+                                <span className="file-icon">
+                                    <i className="fas fa-upload"></i>
+                                </span>
+                                <span className="file-label">
+                                    Choose a file
+                                </span>
                             </span>
-                            <span className="file-label">
-                                Choose a file
+                            <span className="file-name">
+                                {!file ? "file name" : file.name}
                             </span>
-                        </span>
-                        <span className="file-name">
-                            {!file ? "file name" : file.name}
-                        </span>
 
-                    </label>
-                </div>
+                        </label>
+                    </div>
+                )
                 : (
-
                     <div className="columns" style={{ marginBottom: 0 }}>
                         <div className="column is-narrow">
-                            <input className="input is-small" type="text" placeholder="modelo" name="model" onChange={e => handlechange(e)} />
+                            <input className="input is-small" type="text" placeholder="model" name="model" onChange={e => handlechange(e)} />
                         </div>
                         <div className="column is-narrow">
-                            <input className="input is-small" type="text" placeholder="tamanho" name="size" onChange={e => handlechange(e)} />
+                            <input className="input is-small" type="text" placeholder="size" name="size" onChange={e => handlechange(e)} />
                         </div>
                         <div className="column is-narrow">
                             <div className="select is-small">
                                 <select name="gender" onChange={e => handlechange(e)}>
-                                    <option disabled selected hidden>Genero</option>
+                                    <option disabled selected hidden>Gender</option>
                                     <option>Male</option>
                                     <option>Female</option>
                                     <option>Unissex</option>
@@ -82,15 +83,15 @@ const InputData = () => {
                             </div>
                         </div>
                         <div className="column is-narrow">
-                            <input className="input is-small" type="text" placeholder="cor" name="color" onChange={e => handlechange(e)} />
+                            <input className="input is-small" type="text" placeholder="color" name="color" onChange={e => handlechange(e)} />
                         </div>
                         <div className="column is-narrow">
-                            <input className="input is-small" type="text" placeholder="marca" name="brand" onChange={e => handlechange(e)} />
+                            <input className="input is-small" type="text" placeholder="brand" name="brand" onChange={e => handlechange(e)} />
                         </div>
                         <div className="column is-narrow">
                             <div className="select is-small">
                                 <select name="type" onChange={e => handlechange(e)}>
-                                    <option disabled selected hidden>Estilo</option>
+                                    <option disabled selected hidden>Type</option>
                                     <option>Botas</option>
                                     <option>Casual</option>
                                     <option>Sneaker</option>
@@ -100,10 +101,10 @@ const InputData = () => {
                             </div>
                         </div>
                         <div className="column is-narrow">
-                            <input className="input is-small" type="text" placeholder="preço" name="price" onChange={e => handlechange(e)} />
+                            <input className="input is-small" type="text" placeholder="price" name="price" onChange={e => handlechange(e)} />
                         </div>
                         <div className="column is-narrow">
-                            <input className="input is-small" type="text" placeholder="quantidade" name="quantity" onChange={e => handlechange(e)} />
+                            <input className="input is-small" type="text" placeholder="quantity" name="quantity" onChange={e => handlechange(e)} />
                         </div>
                     </div>
                 )}

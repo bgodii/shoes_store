@@ -4,7 +4,7 @@ import Table from './components/table'
 
 function App() {
   return (
-    <div style={{ marginTop: 10, backgroundColor: "#f2f2f2" }}>
+    <div style={{ backgroundColor: "#f2f2f2", height: "100vh", width: "100 vw" }}>
       <div className="container">
         <InputData />
         <Table style={{ paddingTop: 12 }} />

@@ -12,9 +12,9 @@ const InputData = () => {
 
     const sendData = async () => {
         if (!isUpload) {
-            const response = await API.postData(values, '/api/shoes/')
+            await API.postData(values, '/api/shoes/')
         } else {
-            const response = await API.uploadFile(file["file"], '/api/upload/')
+            await API.uploadFile(file["file"], '/api/upload/')
         }
 
         window.location.reload(true)

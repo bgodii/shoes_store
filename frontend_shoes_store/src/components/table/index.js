@@ -14,16 +14,19 @@ const Table = () => {
 
     useEffect(() => {
         getData()
-    }, [])
+    }, [values])
 
-    const deleteItem = (event) => {
-        const itemId = event.target.id
+    const deleteItem = (item) => {
+        const itemId = item.id
         API.removeData(`/api/shoes/${itemId}/`)
         window.location.reload(true)
     }
 
     const openModal = () => setModal(true)
-    const closeModal = () => setModal(false)
+    const closeModal = () => {
+        setModal(false)
+        window.location.reload(true)
+    }
 
     return (
         <>
@@ -46,7 +49,7 @@ const Table = () => {
                     </>
                     : values["results"].map((item, i) => (
                         <tbody>
-                            <tr id={item.id} key={item.id} name={item.id}>
+                            <tr>
                                 <td>{item.model}</td>
                                 <td>{item.size}</td>
                                 <td>{item.gender}</td>
@@ -56,8 +59,8 @@ const Table = () => {
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>
                                 <td>
-                                    <button id={item.id} className="button is-small is-warning" onClick={openModal} style={{ marginRight: 10 }}>Editar</button>
-                                    <button id={item.id} className="button is-small is-danger" onClick={deleteItem}>Remover</button>
+                                    <button className="button is-small is-warning" onClick={openModal} style={{ marginRight: 10 }}>Editar</button>
+                                    <button className="button is-small is-danger" onClick={() => deleteItem(item)}>Remover</button>
                                     <Modal show={modal} closeModal={closeModal} data={item} />
                                 </td>
                             </tr>

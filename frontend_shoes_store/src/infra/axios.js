@@ -32,11 +32,11 @@ export default class API {
         const response = await instance.post(enpoint, data, headers)
         return response
     }
-    static async uploadFile(data, enpoint) {
+    static async uploadFile(data, endpoint) {
         const instance = await this.getInstance()
         instance.defaults.headers.common['Content-Type'] = 'multipart/form-data'
 
-        const response = await instance.post(enpoint, data)
+        const response = await instance.post(endpoint, data)
         return response
     }
 
@@ -49,6 +49,12 @@ export default class API {
     static async removeData(endpoint) {
         const instance = await this.getInstance()
         const response = await instance.delete(endpoint)
+        return response
+    }
+
+    static async updateData(data, endpoint) {
+        const instance = await this.getInstance()
+        const response = await instance.put(endpoint, data)
         return response
     }
 }

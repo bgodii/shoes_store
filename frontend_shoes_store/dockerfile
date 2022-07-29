@@ -1,8 +1,7 @@
 FROM node:14.9.0 
 
 WORKDIR /code
-COPY package.json package-lock.json ./
-RUN npm install
-
 COPY . .
+RUN npm install --silent
+
 CMD [ "npm", "run", "start" ]

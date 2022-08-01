@@ -25,7 +25,7 @@ services:
       context: ./frontend_shoes_store
     container_name: frontend
     volumes:
-      - ./frontend_shoes_store:/code
+      - ./frontend_shoes_store/src:/code/src
     ports:
       - "3000:3000"
     # depends_on:

@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data/
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+  backend_shoes_store:
+    build:
+      context: ./backend_shoes_store
+    container_name: backend
+    command: /code/start-dev.sh
+    volumes:
+      - ./backend_shoes_store:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  frontend_shoes_store:
+    build:
+      context: ./frontend_shoes_store
+    container_name: frontend
+    volumes:
+      - ./frontend_shoes_store/src:/code/src
+    ports:
+      - "3000:3000"
+    # depends_on:
+    #   - backend_shoes_store

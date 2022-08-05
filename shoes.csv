@@ -1,0 +1,31 @@
+size;model;gender;color;brand;type;price;quantity
+41;AF1;Unissex;white;nike;Sneaker;900;10
+40;AF1;Unissex;white;nike;Sneaker;900;10
+39;AF1;Unissex;white;nike;Sneaker;900;10
+38;AF1;Unissex;white;nike;Sneaker;900;10
+37;AF1;Unissex;white;nike;Sneaker;900;10
+41;AF1;Unissex;black;nike;Sneaker;900;10
+40;AF1;Unissex;black;nike;Sneaker;900;10
+39;AF1;Unissex;black;nike;Sneaker;900;10
+38;AF1;Unissex;black;nike;Sneaker;900;10
+37;AF1;Unissex;black;nike;Sneaker;900;10
+41;Jordan 1;Unissex;red;jordan;Sneaker;1200;10
+40;Jordan 1;Unissex;red;jordan;Sneaker;1200;10
+39;Jordan 1;Unissex;red;jordan;Sneaker;1200;10
+38;Jordan 1;Unissex;red;jordan;Sneaker;1200;10
+37;Jordan 1;Unissex;red;jordan;Sneaker;1200;10
+41;Jordan 1;Unissex;green;jordan;Sneaker;1200;10
+40;Jordan 1;Unissex;green;jordan;Sneaker;1200;10
+39;Jordan 1;Unissex;green;jordan;Sneaker;1200;10
+38;Jordan 1;Unissex;green;jordan;Sneaker;1200;10
+37;Jordan 1;Unissex;green;jordan;Sneaker;1200;10
+41;Jordan 3;Unissex;red;jordan;Sneaker;1200;10
+40;Jordan 3;Unissex;red;jordan;Sneaker;1200;10
+39;Jordan 3;Unissex;red;jordan;Sneaker;1200;10
+38;Jordan 3;Unissex;red;jordan;Sneaker;1200;10
+37;Jordan 3;Unissex;red;jordan;Sneaker;1200;10
+41;Jordan 3;Unissex;green;jordan;Sneaker;1200;10
+40;Jordan 3;Unissex;green;jordan;Sneaker;1200;10
+39;Jordan 3;Unissex;green;jordan;Sneaker;1200;10
+38;Jordan 3;Unissex;green;jordan;Sneaker;1200;10
+37;Jordan 3;Unissex;green;jordan;Sneaker;1200;10
